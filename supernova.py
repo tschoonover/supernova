@@ -1,14 +1,12 @@
 import pygame
 from gpiozero import Button
 from random import randrange
+import glob
 
 def main():
     pygame.init()
-
-    sounds = [pygame.mixer.Sound('sounds/smb_1-up.wav'),
-        pygame.mixer.Sound('sounds/smb_coin.wav'),
-        pygame.mixer.Sound('sounds/smb_pipe.wav'),
-        pygame.mixer.Sound('sounds/smb_powerup.wav')]
+    
+    sounds = [pygame.mixer.Sound(f) for f in glob.glob("sounds/*.wav")]
     
     is_playing = False
     
